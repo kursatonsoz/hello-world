@@ -1,4 +1,4 @@
-<form action="action_page.php">
+<form action="#">
   <div class="container">
     <h1>MKO Register for DevOps Learning</h1>
     <p>Please fill in this form to create an account.</p>
@@ -28,10 +28,10 @@
     <button type="submit" class="registerbtn">Register</button>
   </div>
   <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
+    <h3>Already have an account? <a href="#">Sign in</a>.</h3>
   </div>
 
-   <h1> Thankyou, Happy Learning </h1>
+   <h2> Thankyou, Happy Learning ... </h2>
 
   
 </form>
