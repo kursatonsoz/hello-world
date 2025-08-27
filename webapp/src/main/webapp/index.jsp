@@ -1,72 +1,17 @@
-<%@ page import = "java.util.*, java.io.*" %>
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+    pageEncoding="US-ASCII"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!--
-partially derived from snoop.jsp sample Java file distributed by Sun
-Copyright (c) 1999 Sun Microsystems, Inc. All Rights Reserved.
--->
-
-<body bgcolor="white">
-
-<h2>Browser cookie string is:</h2>
-<script>document.writeln( document.cookie );</script>
-<h3>The cookies in the page are:</h3>
-<script>
-var cookiestring=""+document.cookie;
-var cookies = cookiestring.split(";")
-
-for( var i = 0; i < cookies.length; i++ )
-{
-document.writeln( unescape( cookies[i] ) + "<br>");
-}
-
-</script>
-
-<h2> Request Information </h2>
-<font size="4">
-JSP Request Method: <%= request.getMethod() %><br>
-Remote user: <%= request.getRemoteUser() %>
-<hr><br>
-
-Request URI: <%= request.getRequestURI() %><br>
-Request Protocol: <%= request.getProtocol() %><br>
-Servlet path: <%= request.getServletPath() %><br>
-Path info: <%= request.getPathInfo() %><br>
-Path translated: <%= request.getPathTranslated() %><br>
-Query string: <%= request.getQueryString() %><br>
-Content length: <%= request.getContentLength() %><br>
-Content type: <%= request.getContentType() %><br>
-Server name: <%= request.getServerName() %><br>
-Server port: <%= request.getServerPort() %><br>
-Remote user: <%= request.getRemoteUser() %><br>
-Remote address: <%= request.getRemoteAddr() %><br>
-Remote host: <%= request.getRemoteHost() %><br>
-Authorization scheme: <%= request.getAuthType() %><hr>
-
-The browser you are using is <%= request.getHeader("User-Agent") %>
-<hr>
-The Headers passed in the request are:
-<%
-Enumeration enum;
-enum = request.getHeaderNames();
-while( enum.hasMoreElements() )
-{
-String header = (String) enum.nextElement();
-out.println( "<br>" + header + " is: " +
-request.getHeader( header ) );
-}
-%>
-
-<hr>
-The cookies passed in this request are:
-<%
-Cookie cookies[] = request.getCookies();
-for (int i = 0; i < cookies.length; ++i)
-{
-out.println ( "<br>" + cookies[i].getName() + " = "
-+ cookies[i].getValue() );
-}
-%>
-<hr>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Test JSP</title>
+</head>
+<body>
+Server_name: 
+<%=InetAddress.getLocalHost().getHostName() %>
+<br>
+Test JSP Page inside WEB-INF folder.<br>
+Init Param "test" value =<%=config.getInitParameter("test") %><br>
+HashCode of this object=<%=this.hashCode() %>
 </body>
-<html>
-
+</html>
