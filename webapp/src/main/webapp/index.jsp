@@ -8,7 +8,6 @@
 </head>
 <body>
 Server_name: 
-<%=InetAddress.getLocalHost().getHostName() %>
 <br>
 Test JSP Page inside WEB-INF folder.<br>
 </body>
