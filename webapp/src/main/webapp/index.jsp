@@ -7,7 +7,7 @@
 <title>Test JSP</title>
 </head>
 <body>
-Server_name: 
+Server host name is: <b><%=request.getServerName() %></b>
 <br>
 Test JSP Page inside WEB-INF folder.<br>
 </body>
