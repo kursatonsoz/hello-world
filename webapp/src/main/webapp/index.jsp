@@ -1,37 +1,72 @@
-<form action="#">
-  <div class="container">
-    <h1>MKO Register for DevOps Learning</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
-     
-    <label for="Name"><b>Enter Name</b></label>
-    <input type="text" placeholder="Enter Full Name" name="Name" id="Name" required>
-    <br>
-    
-    <label for="mobile"><b>Enter mobile</b></label>
-    <input type="text" placeholder="Enter mobile number" name="mobile" id="mobile" required>
-    <br>
+<%@ page import = "java.util.*, java.io.*" %>
+<html>
+<!--
+partially derived from snoop.jsp sample Java file distributed by Sun
+Copyright (c) 1999 Sun Microsystems, Inc. All Rights Reserved.
+-->
 
-    <label for="email"><b>Enter Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-    <br>
+<body bgcolor="white">
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-    <br>
+<h2>Browser cookie string is:</h2>
+<script>document.writeln( document.cookie );</script>
+<h3>The cookies in the page are:</h3>
+<script>
+var cookiestring=""+document.cookie;
+var cookies = cookiestring.split(";")
 
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-    <hr>
-    <br>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" class="registerbtn">Register</button>
-  </div>
-  <div class="container signin">
-    <h3>Already have an account? <a href="#">Sign in</a>.</h3>
-  </div>
+for( var i = 0; i < cookies.length; i++ )
+{
+document.writeln( unescape( cookies[i] ) + "<br>");
+}
 
-   <h2> Thankyou, Happy Learning ... </h2>
+</script>
 
-  
-</form>
+<h2> Request Information </h2>
+<font size="4">
+JSP Request Method: <%= request.getMethod() %><br>
+Remote user: <%= request.getRemoteUser() %>
+<hr><br>
+
+Request URI: <%= request.getRequestURI() %><br>
+Request Protocol: <%= request.getProtocol() %><br>
+Servlet path: <%= request.getServletPath() %><br>
+Path info: <%= request.getPathInfo() %><br>
+Path translated: <%= request.getPathTranslated() %><br>
+Query string: <%= request.getQueryString() %><br>
+Content length: <%= request.getContentLength() %><br>
+Content type: <%= request.getContentType() %><br>
+Server name: <%= request.getServerName() %><br>
+Server port: <%= request.getServerPort() %><br>
+Remote user: <%= request.getRemoteUser() %><br>
+Remote address: <%= request.getRemoteAddr() %><br>
+Remote host: <%= request.getRemoteHost() %><br>
+Authorization scheme: <%= request.getAuthType() %><hr>
+
+The browser you are using is <%= request.getHeader("User-Agent") %>
+<hr>
+The Headers passed in the request are:
+<%
+Enumeration enum;
+enum = request.getHeaderNames();
+while( enum.hasMoreElements() )
+{
+String header = (String) enum.nextElement();
+out.println( "<br>" + header + " is: " +
+request.getHeader( header ) );
+}
+%>
+
+<hr>
+The cookies passed in this request are:
+<%
+Cookie cookies[] = request.getCookies();
+for (int i = 0; i < cookies.length; ++i)
+{
+out.println ( "<br>" + cookies[i].getName() + " = "
++ cookies[i].getValue() );
+}
+%>
+<hr>
+</body>
+<html>
+
