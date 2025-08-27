@@ -11,7 +11,5 @@ Server_name:
 <%=InetAddress.getLocalHost().getHostName() %>
 <br>
 Test JSP Page inside WEB-INF folder.<br>
-Init Param "test" value =<%=config.getInitParameter("test") %><br>
-HashCode of this object=<%=this.hashCode() %>
 </body>
 </html>
